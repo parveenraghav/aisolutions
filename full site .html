@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient IT Solutions - Technology & Digital Marketing Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e67e22;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            padding-top: 80px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            margin: 0;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover, 
+        nav ul li a.active {
+            color: var(--secondary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        /* Page Content Styles */
+        .page-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--light);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background-color: var(--primary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            color: var(--secondary);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-overlay p {
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+        
+        /* Blog Section */
+        .blog {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .blog-meta span {
+            margin-right: 15px;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Blog Detail Page */
+        .blog-detail {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .blog-detail-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        .blog-detail-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .blog-detail-image {
+            height: 400px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .blog-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-detail-meta {
+            display: flex;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .blog-detail-meta span {
+            margin-right: 20px;
+        }
+        
+        .blog-detail-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .blog-detail-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .blog-detail-content blockquote {
+            border-left: 4px solid var(--secondary);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--text-light);
+        }
+        
+        .blog-sidebar {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .sidebar-widget {
+            margin-bottom: 40px;
+        }
+        
+        .sidebar-widget h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .recent-posts li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .recent-posts li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .recent-posts a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .recent-posts a:hover {
+            color: var(--secondary);
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            background: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-details h4 {
+            margin-bottom: 5px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            text-align: center;
+            display: none;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta .btn {
+            background-color: white;
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            color: #bbb;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container,
+            .blog-detail-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+            
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Ancient<span>ITSolutions</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#" class="nav-link" data-page="portfolio">Portfolio</a></li>
+                    <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn" data-page="contact">Get Quote</a>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h2>Ancient IT Solutions - Where Technology Meets Marketing</h2>
+                <p>We provide cutting-edge IT solutions and result-driven digital marketing strategies to help your business thrive in the digital age.</p>
+                <a href="#" class="btn" data-page="services">Our Services</a>
+            </div>
+        </section>
+
+        <!-- Services Preview -->
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive IT and digital marketing solutions for your business</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Web Development</h3>
+                            <p>We create responsive, user-friendly websites that represent your brand and convert visitors into customers.</p>
+                            <a href="#" class="btn" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>App Development</h3>
+                            <p>From iOS to Android, we build cross-platform mobile applications that deliver exceptional user experiences.</p>
+                            <a href="#" class="btn" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Digital Marketing</h3>
+                            <p>Our data-driven marketing strategies help you reach the right audience and maximize your ROI.</p>
+                            <a href="#" class="btn" data-page="services">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn" data-page="services">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview -->
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Ancient IT Solutions</h2>
+                        <p>Ancient IT Solutions is a leading technology and digital marketing company with a mission to help businesses succeed in the digital world. With years of experience and a team of skilled professionals, we deliver innovative solutions that drive growth and success.</p>
+                        <p>Our approach combines technical expertise with creative marketing strategies to provide comprehensive solutions that meet your business goals.</p>
+                        <a href="#" class="btn" data-page="about">Learn More About Us</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="About Ancient IT Solutions">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Clients Say</h2>
+                    <p>Don't just take our word for it - hear from our satisfied clients</p>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>"Ancient IT Solutions transformed our online presence. Their web development and SEO services have significantly increased our traffic and conversions."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-details">
+                                <h4>Sarah Johnson</h4>
+                                <p>CEO, TechVision</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>"The digital marketing strategies implemented by Ancient IT Solutions have helped us reach new customers and increase sales by 40% in just three months."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                            </div>
+                            <div class="author-details">
+                                <h4>Michael Chen</h4>
+                                <p>Marketing Director, Global Retail</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>"Their mobile app development team delivered an exceptional product that our users love. The attention to detail and user experience was outstanding."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emma Rodriguez">
+                            </div>
+                            <div class="author-details">
+                                <h4>Emma Rodriguez</h4>
+                                <p>Product Manager, InnovateTech</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Contact us today to discuss how our technology and digital marketing solutions can help your business grow.</p>
+                <a href="#" class="btn" data-page="contact">Get Started Now</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Services Page -->
+    <div id="services" class="page-content">
+        <section class="hero">
+            <div class="container">
+                <h2>Our Services</h2>
+                <p>Comprehensive IT solutions and digital marketing services to grow your business</p>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Web Development</h3>
+                            <p>We create responsive, user-friendly websites that represent your brand and convert visitors into customers. Our development process focuses on performance, security, and scalability.</p>
+                            <ul>
+                                <li>Custom Website Development</li>
+                                <li>E-Commerce Solutions</li>
+                                <li>WordPress Development</li>
+                                <li>Website Maintenance</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>App Development</h3>
+                            <p>From iOS to Android, we build cross-platform mobile applications that deliver exceptional user experiences. We follow agile methodologies to ensure timely delivery.</p>
+                            <ul>
+                                <li>iOS App Development</li>
+                                <li>Android App Development</li>
+                                <li>Cross-Platform Solutions</li>
+                                <li>UI/UX Design</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Digital Marketing</h3>
+                            <p>Our data-driven marketing strategies help you reach the right audience and maximize your ROI. We combine creativity with analytics to deliver results.</p>
+                            <ul>
+                                <li>Social Media Marketing</li>
+                                <li>Email Marketing Campaigns</li>
+                                <li>Content Marketing</li>
+                                <li>PPC Advertising</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>SEO Optimization</h3>
+                            <p>Improve your search engine rankings and drive organic traffic to your website with our SEO expertise. We use white-hat techniques for sustainable results.</p>
+                            <ul>
+                                <li>Keyword Research</li>
+                                <li>On-Page Optimization</li>
+                                <li>Technical SEO</li>
+                                <li>Local SEO</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>UI/UX Design</h3>
+                            <p>We create intuitive and engaging user experiences that keep your audience engaged. Our designs are not just beautiful but also functional and user-friendly.</p>
+                            <ul>
+                                <li>User Research</li>
+                                <li>Wireframing & Prototyping</li>
+                                <li>Visual Design</li>
+                                <li>Usability Testing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Cloud Solutions</h3>
+                            <p>Leverage the power of cloud computing to scale your business operations. We provide secure and reliable cloud infrastructure solutions.</p>
+                            <ul>
+                                <li>Cloud Migration</li>
+                                <li>Cloud Infrastructure Setup</li>
+                                <li>Server Management</li>
+                                <li>Data Backup Solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Contact us today to discuss your project requirements and get a free consultation.</p>
+                <a href="#" class="btn" data-page="contact">Contact Us Now</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page-content">
+        <section class="hero">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>Learn about our mission, values, and the team behind Ancient IT Solutions</p>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Our Story</h2>
+                        <p>Founded in 2010, Ancient IT Solutions began as a small web development agency with a vision to help businesses establish their online presence. Over the years, we've expanded our services to include digital marketing, mobile app development, and comprehensive IT solutions.</p>
+                        <p>Our name "Ancient" reflects our commitment to timeless principles of quality, integrity, and customer satisfaction, while leveraging the latest technologies to deliver cutting-edge solutions.</p>
+                        <p>Today, we're proud to have served over 500 clients across various industries, helping them achieve their business goals through technology and innovation.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Our Team">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Values</h2>
+                    <p>The principles that guide everything we do</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Quality</h3>
+                            <p>We never compromise on quality. Every project we deliver meets the highest standards of excellence and undergoes rigorous quality assurance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Innovation</h3>
+                            <p>We stay ahead of the curve by embracing new technologies and innovative approaches to solve our clients' challenges.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Partnership</h3>
+                            <p>We view ourselves as partners in our clients' success, working closely with them to achieve their business objectives.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Team</h2>
+                    <p>Meet the talented professionals behind Ancient IT Solutions</p>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="author-image" style="width: 100px; height: 100px; margin: 0 auto 20px;">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="John Smith">
+                        </div>
+                        <h3 style="text-align: center;">John Smith</h3>
+                        <p style="text-align: center; color: var(--secondary);">CEO & Founder</p>
+                        <div class="testimonial-text">
+                            <p>John founded Ancient IT Solutions with a vision to bridge the gap between technology and business needs. With over 15 years of experience in the IT industry, he leads the company with strategic direction and vision.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="author-image" style="width: 100px; height: 100px; margin: 0 auto 20px;">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
+                        </div>
+                        <h3 style="text-align: center;">Sarah Johnson</h3>
+                        <p style="text-align: center; color: var(--secondary);">Technical Director</p>
+                        <div class="testimonial-text">
+                            <p>Sarah leads our technical team with expertise in software architecture and development. She ensures that all our solutions are built using best practices and cutting-edge technologies.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="author-image" style="width: 100px; height: 100px; margin: 0 auto 20px;">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
+                        </div>
+                        <h3 style="text-align: center;">Michael Chen</h3>
+                        <p style="text-align: center; color: var(--secondary);">Marketing Director</p>
+                        <div class="testimonial-text">
+                            <p>Michael heads our digital marketing division, bringing innovative strategies to help our clients reach their target audience and achieve their business goals through effective digital campaigns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Portfolio Page -->
+    <div id="portfolio" class="page-content">
+        <section class="hero">
+            <div class="container">
+                <h2>Our Portfolio</h2>
+                <p>Explore our recent projects and see how we've helped businesses succeed</p>
+            </div>
+        </section>
+
+        <section class="portfolio">
+            <div class="container">
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="app">App Development</button>
+                    <button class="filter-btn" data-filter="marketing">Digital Marketing</button>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-category="web">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="E-Commerce Website">
+                        <div class="portfolio-overlay">
+                            <h3>E-Commerce Website</h3>
+                            <p>Complete online store with payment integration and inventory management</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="web">
+                        <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Corporate Website">
+                        <div class="portfolio-overlay">
+                            <h3>Corporate Website</h3>
+                            <p>Modern responsive website for a financial consulting firm</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="app">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fitness App">
+                        <div class="portfolio-overlay">
+                            <h3>Fitness Tracking App</h3>
+                            <p>Mobile application for workout tracking and nutrition planning</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="app">
+                        <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Food Delivery App">
+                        <div class="portfolio-overlay">
+                            <h3>Food Delivery App</h3>
+                            <p>Restaurant ordering and delivery application with real-time tracking</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="marketing">
+                        <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8f5a07a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="SEO Campaign">
+                        <div class="portfolio-overlay">
+                            <h3>SEO Campaign</h3>
+                            <p>Organic traffic growth strategy for a travel company</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="marketing">
+                        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Social Media Strategy">
+                        <div class="portfolio-overlay">
+                            <h3>Social Media Strategy</h3>
+                            <p>Brand awareness campaign for a fashion retailer</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Have a Project in Mind?</h2>
+                <p>Let's discuss how we can bring your ideas to life with our expertise and creativity.</p>
+                <a href="#" class="btn" data-page="contact">Start a Project</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Blog Page -->
+    <div id="blog" class="page-content">
+        <section class="hero">
+            <div class="container">
+                <h2>Our Blog</h2>
+                <p>Insights, tips, and news about technology and digital marketing</p>
+            </div>
+        </section>
+
+        <section class="blog">
+            <div class="container">
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI in Marketing">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> June 15, 2023</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h3>The Future of AI in Digital Marketing</h3>
+                            <p>Artificial Intelligence is transforming how businesses approach digital marketing. From personalized content to predictive analytics, AI is changing the game.</p>
+                            <a href="#" class="btn read-more" data-blog="1">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Web Design Trends">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> May 28, 2023</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h3>Top Web Design Trends for 2023</h3>
+                            <p>Stay ahead of the curve with these emerging web design trends. From dark mode to immersive 3D elements, discover what's shaping the web this year.</p>
+                            <a href="#" class="btn read-more" data-blog="2">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Mobile App Development">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> April 12, 2023</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h3>Cross-Platform vs Native App Development</h3>
+                            <p>Choosing between cross-platform and native app development can be challenging. We break down the pros and cons of each approach to help you decide.</p>
+                            <a href="#" class="btn read-more" data-blog="3">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="SEO Strategies">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> March 22, 2023</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h3>SEO Strategies That Actually Work in 2023</h3>
+                            <p>Search engine algorithms are constantly changing. Discover the SEO strategies that are proving effective this year and how to implement them.</p>
+                            <a href="#" class="btn read-more" data-blog="4">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cloud Computing">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> February 18, 2023</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h3>Benefits of Cloud Computing for Small Businesses</h3>
+                            <p>Cloud computing isn't just for large enterprises. Learn how small businesses can leverage cloud technology to reduce costs and improve efficiency.</p>
+                            <a href="#" class="btn read-more" data-blog="5">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Social Media Marketing">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> January 5, 2023</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h3>Social Media Marketing Mistakes to Avoid</h3>
+                            <p>Even experienced marketers can make mistakes on social media. Learn about common pitfalls and how to avoid them in your social media strategy.</p>
+                            <a href="#" class="btn read-more" data-blog="6">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Blog Detail Page -->
+    <div id="blog-detail" class="page-content">
+        <section class="hero">
+            <div class="container">
+                <h2 id="blog-detail-title">Blog Detail</h2>
+                <p id="blog-detail-subtitle">Read our latest insights and updates</p>
+            </div>
+        </section>
+
+        <section class="blog-detail">
+            <div class="container">
+                <div class="blog-detail-container">
+                    <div class="blog-detail-content">
+                        <div class="blog-detail-image">
+                            <img id="detail-image" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Blog Detail">
+                        </div>
+                        
+                        <div class="blog-detail-meta">
+                            <span><i class="far fa-calendar"></i> <span id="detail-date">June 15, 2023</span></span>
+                            <span><i class="far fa-user"></i> <span id="detail-author">Admin</span></span>
+                            <span><i class="far fa-folder"></i> <span id="detail-category">Digital Marketing</span></span>
+                        </div>
+                        
+                        <h1 id="detail-heading">The Future of AI in Digital Marketing</h1>
+                        
+                        <div id="detail-content">
+                            <p>Artificial Intelligence is transforming how businesses approach digital marketing. From personalized content to predictive analytics, AI is changing the game for marketers worldwide.</p>
+                            
+                            <p>In today's competitive landscape, businesses that leverage AI-powered marketing tools gain a significant advantage. These tools can analyze vast amounts of data to identify patterns, predict customer behavior, and optimize marketing campaigns in real-time.</p>
+                            
+                            <blockquote>
+                                "AI is not just the future of marketing—it's the present. Brands that fail to adopt AI technologies risk being left behind in an increasingly data-driven marketplace."
+                            </blockquote>
+                            
+                            <h3>How AI is Revolutionizing Digital Marketing</h3>
+                            <p>AI technologies are being applied across various aspects of digital marketing:</p>
+                            
+                            <h4>1. Personalized Content Recommendations</h4>
+                            <p>AI algorithms analyze user behavior to deliver highly personalized content recommendations. This increases engagement and conversion rates by showing users exactly what they're interested in.</p>
+                            
+                            <h4>2. Predictive Analytics</h4>
+                            <p>By analyzing historical data, AI can predict future trends and customer behavior. This allows marketers to anticipate market shifts and adjust their strategies accordingly.</p>
+                            
+                            <h4>3. Chatbots and Customer Service</h4>
+                            <p>AI-powered chatbots provide instant customer support, answering queries and resolving issues 24/7. This improves customer satisfaction while reducing support costs.</p>
+                            
+                            <h4>4. Programmatic Advertising</h4>
+                            <p>AI algorithms automate the buying of advertising space, optimizing ad placements in real-time based on performance data. This ensures that marketing budgets are spent efficiently.</p>
+                            
+                            <h3>The Future of AI in Marketing</h3>
+                            <p>As AI technology continues to evolve, we can expect even more sophisticated applications in digital marketing. Voice search optimization, hyper-personalization, and predictive customer journey mapping are just a few areas where AI will make significant impacts.</p>
+                            
+                            <p>Marketers who embrace AI today will be better positioned to leverage these emerging technologies tomorrow. The key is to start small, experiment with different AI tools, and gradually integrate them into your marketing strategy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-sidebar">
+                        <div class="sidebar-widget">
+                            <h3>Search</h3>
+                            <div class="search-form">
+                                <input type="text" placeholder="Search blogs..." style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ddd;">
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-widget">
+                            <h3>Categories</h3>
+                            <ul class="recent-posts">
+                                <li><a href="#">Digital Marketing (12)</a></li>
+                                <li><a href="#">Web Development (8)</a></li>
+                                <li><a href="#">App Development (5)</a></li>
+                                <li><a href="#">SEO (7)</a></li>
+                                <li><a href="#">Social Media (9)</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="sidebar-widget">
+                            <h3>Recent Posts</h3>
+                            <ul class="recent-posts">
+                                <li><a href="#" class="recent-post" data-blog="1">The Future of AI in Digital Marketing</a></li>
+                                <li><a href="#" class="recent-post" data-blog="2">Top Web Design Trends for 2023</a></li>
+                                <li><a href="#" class="recent-post" data-blog="3">Cross-Platform vs Native App Development</a></li>
+                                <li><a href="#" class="recent-post" data-blog="4">SEO Strategies That Actually Work in 2023</a></li>
+                                <li><a href="#" class="recent-post" data-blog="5">Benefits of Cloud Computing for Small Businesses</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="sidebar-widget">
+                            <h3>Tags</h3>
+                            <div class="tags">
+                                <a href="#" class="tag">Marketing</a>
+                                <a href="#" class="tag">AI</a>
+                                <a href="#" class="tag">Web Design</a>
+                                <a href="#" class="tag">Development</a>
+                                <a href="#" class="tag">SEO</a>
+                                <a href="#" class="tag">Social Media</a>
+                                <a href="#" class="tag">Cloud</a>
+                                <a href="#" class="tag">Apps</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page-content">
+        <section class="hero">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us to discuss how we can help your business grow</p>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <p>Have a project in mind or want to learn more about our services? Reach out to us using the contact information below or fill out the form.</p>
+                        
+                        <div class="contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, City, Country</p>
+                            <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                            <p><i class="fas fa-envelope"></i> info@ancientitsolutions.com</p>
+                            <p><i class="fas fa-clock"></i> Monday-Friday: 9AM - 5PM</p>
+                        </div>
+                        
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div style="width: 100%">
+            <iframe 
+                width="100%" 
+                height="400" 
+                frameborder="0" 
+                scrolling="no" 
+                marginheight="0" 
+                marginwidth="0" 
+                src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=123%20Tech%20Street,%20City,%20Country+(Ancient%20IT%20Solutions)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            >
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Ancient IT Solutions</h3>
+                    <p>Providing cutting-edge technology solutions and result-driven digital marketing strategies to businesses worldwide.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#" data-page="services">Web Development</a></li>
+                        <li><a href="#" data-page="services">Mobile App Development</a></li>
+                        <li><a href="#" data-page="services">Digital Marketing</a></li>
+                        <li><a href="#" data-page="services">SEO Optimization</a></li>
+                        <li><a href="#" data-page="services">UI/UX Design</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" data-page="about">About Us</a></li>
+                        <li><a href="#" data-page="portfolio">Portfolio</a></li>
+                        <li><a href="#" data-page="testimonials">Testimonials</a></li>
+                        <li><a href="#" data-page="blog">Blog</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@ancientitsolutions.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Ancient IT Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Blog data
+        const blogPosts = {
+            1: {
+                title: "The Future of AI in Digital Marketing",
+                subtitle: "How artificial intelligence is transforming marketing strategies",
+                image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                date: "June 15, 2023",
+                author: "Admin",
+                category: "Digital Marketing",
+                content: `
+                    <p>Artificial Intelligence is transforming how businesses approach digital marketing. From personalized content to predictive analytics, AI is changing the game for marketers worldwide.</p>
+                    
+                    <p>In today's competitive landscape, businesses that leverage AI-powered marketing tools gain a significant advantage. These tools can analyze vast amounts of data to identify patterns, predict customer behavior, and optimize marketing campaigns in real-time.</p>
+                    
+                    <blockquote>
+                        "AI is not just the future of marketing—it's the present. Brands that fail to adopt AI technologies risk being left behind in an increasingly data-driven marketplace."
+                    </blockquote>
+                    
+                    <h3>How AI is Revolutionizing Digital Marketing</h3>
+                    <p>AI technologies are being applied across various aspects of digital marketing:</p>
+                    
+                    <h4>1. Personalized Content Recommendations</h4>
+                    <p>AI algorithms analyze user behavior to deliver highly personalized content recommendations. This increases engagement and conversion rates by showing users exactly what they're interested in.</p>
+                    
+                    <h4>2. Predictive Analytics</h4>
+                    <p>By analyzing historical data, AI can predict future trends and customer behavior. This allows marketers to anticipate market shifts and adjust their strategies accordingly.</p>
+                    
+                    <h4>3. Chatbots and Customer Service</h4>
+                    <p>AI-powered chatbots provide instant customer support, answering queries and resolving issues 24/7. This improves customer satisfaction while reducing support costs.</p>
+                    
+                    <h4>4. Programmatic Advertising</h4>
+                    <p>AI algorithms automate the buying of advertising space, optimizing ad placements in real-time based on performance data. This ensures that marketing budgets are spent efficiently.</p>
+                    
+                    <h3>The Future of AI in Marketing</h3>
+                    <p>As AI technology continues to evolve, we can expect even more sophisticated applications in digital marketing. Voice search optimization, hyper-personalization, and predictive customer journey mapping are just a few areas where AI will make significant impacts.</p>
+                    
+                    <p>Marketers who embrace AI today will be better positioned to leverage these emerging technologies tomorrow. The key is to start small, experiment with different AI tools, and gradually integrate them into your marketing strategy.</p>
+                `
+            },
+            2: {
+                title: "Top Web Design Trends for 2023",
+                subtitle: "Stay ahead of the curve with these emerging design trends",
+                image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                date: "May 28, 2023",
+                author: "Admin",
+                category: "Web Design",
+                content: `
+                    <p>Web design is constantly evolving, with new trends emerging each year that shape how we experience the internet. In 2023, we're seeing a focus on immersive experiences, minimalism, and accessibility.</p>
+                    
+                    <p>Staying current with these trends is essential for businesses that want to maintain a competitive online presence. A modern, well-designed website not only attracts visitors but also keeps them engaged and encourages conversions.</p>
+                    
+                    <h3>Key Web Design Trends for 2023</h3>
+                    
+                    <h4>1. Dark Mode Design</h4>
+                    <p>Dark mode has moved from being a novelty to an expected feature. It reduces eye strain, saves battery life on OLED screens, and provides a sleek, modern aesthetic.</p>
+                    
+                    <h4>2. Immersive 3D Elements</h4>
+                    <p>Advances in web technologies have made it easier to incorporate 3D elements without sacrificing performance. These elements create engaging, interactive experiences that capture users' attention.</p>
+                    
+                    <h4>3. Minimalist Navigation</h4>
+                    <p>Simplified navigation structures with hidden menus (hamburger menus) and progressive disclosure techniques create cleaner interfaces that are easier to use on all devices.</p>
+                    
+                    <h4>4. Accessibility-First Design</h4>
+                    <p>With increasing awareness of digital accessibility, designers are prioritizing inclusive design practices that ensure websites are usable by people with diverse abilities.</p>
+                    
+                    <h4>5. Micro-interactions</h4>
+                    <p>Small animations and responses to user actions provide feedback, guide users, and add personality to digital experiences.</p>
+                    
+                    <h3>Implementing These Trends</h3>
+                    <p>While it's important to stay current with design trends, it's equally important to implement them in ways that serve your specific audience and business goals. Not every trend will be appropriate for every website.</p>
+                    
+                    <p>The most successful websites combine trending elements with timeless design principles to create experiences that are both contemporary and functional.</p>
+                `
+            },
+            3: {
+                title: "Cross-Platform vs Native App Development",
+                subtitle: "Choosing the right approach for your mobile application",
+                image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                date: "April 12, 2023",
+                author: "Admin",
+                category: "App Development",
+                content: `
+                    <p>When developing a mobile application, one of the most critical decisions is choosing between native and cross-platform development. Each approach has its advantages and trade-offs that can significantly impact your project's cost, timeline, and performance.</p>
+                    
+                    <p>Understanding the differences between these approaches is essential for making an informed decision that aligns with your business objectives, target audience, and technical requirements.</p>
+                    
+                    <h3>Native App Development</h3>
+                    <p>Native apps are developed specifically for one platform (iOS or Android) using platform-specific programming languages and tools.</p>
+                    
+                    <h4>Advantages:</h4>
+                    <ul>
+                        <li>Superior performance and responsiveness</li>
+                        <li>Direct access to all device features and APIs</li>
+                        <li>Better user experience following platform guidelines</li>
+                        <li>Easier to monetize through app stores</li>
+                    </ul>
+                    
+                    <h4>Disadvantages:</h4>
+                    <ul>
+                        <li>Higher development cost (need separate codebases)</li>
+                        <li>Longer development time</li>
+                        <li>Maintenance requires platform-specific expertise</li>
+                    </ul>
+                    
+                    <h3>Cross-Platform Development</h3>
+                    <p>Cross-platform apps are developed using frameworks that allow code sharing across iOS and Android platforms.</p>
+                    
+                    <h4>Advantages:</h4>
+                    <ul>
+                        <li>Faster development time (single codebase)</li>
+                        <li>Lower development cost</li>
+                        <li>Easier maintenance and updates</li>
+                        <li>Consistent user experience across platforms</li>
+                    </ul>
+                    
+                    <h4>Disadvantages:</h4>
+                    <ul>
+                        <li>Potential performance limitations</li>
+                        <li>Delayed access to new platform features</li>
+                        <li>Possible inconsistencies with platform conventions</li>
+                    </ul>
+                    
+                    <h3>Which Approach is Right for You?</h3>
+                    <p>The choice between native and cross-platform development depends on several factors:</p>
+                    
+                    <p><strong>Choose native if:</strong> Your app requires high performance, uses complex device features, prioritizes platform-specific user experience, or has sufficient budget and timeline.</p>
+                    
+                    <p><strong>Choose cross-platform if:</strong> You need to reach both iOS and Android users quickly, have budget constraints, or your app doesn't require extensive use of native device features.</p>
+                    
+                    <p>Many successful apps use a hybrid approach, combining cross-platform development for most features with native code for performance-critical components.</p>
+                `
+            }
+        };
+
+        // Page Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.nav-link, .btn[data-page], .footer-col a[data-page]');
+            
+            // Add click event to each link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const pageId = this.getAttribute('data-page');
+                    if (pageId) {
+                        // Hide all pages
+                        document.querySelectorAll('.page-content').forEach(page => {
+                            page.classList.remove('active');
+                        });
+                        
+                        // Show the selected page
+                        document.getElementById(pageId).classList.add('active');
+                        
+                        // Update active navigation link
+                        document.querySelectorAll('.nav-link').forEach(navLink => {
+                            navLink.classList.remove('active');
+                        });
+                        
+                        document.querySelector(`.nav-link[data-page="${pageId}"]`).classList.add('active');
+                        
+                        // Scroll to top
+                        window.scrollTo(0, 0);
+                    }
+                });
+            });
+            
+            // Portfolio filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                });
+            }
+            
+            // Blog read more functionality
+            const readMoreButtons = document.querySelectorAll('.read-more, .recent-post');
+            
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const blogId = this.getAttribute('data-blog');
+                    const blogData = blogPosts[blogId];
+                    
+                    if (blogData) {
+                        // Update blog detail page content
+                        document.getElementById('blog-detail-title').textContent = 'Blog Detail';
+                        document.getElementById('blog-detail-subtitle').textContent = 'Read our latest insights and updates';
+                        document.getElementById('detail-image').src = blogData.image;
+                        document.getElementById('detail-date').textContent = blogData.date;
+                        document.getElementById('detail-author').textContent = blogData.author;
+                        document.getElementById('detail-category').textContent = blogData.category;
+                        document.getElementById('detail-heading').textContent = blogData.title;
+                        document.getElementById('detail-content').innerHTML = blogData.content;
+                        
+                        // Hide all pages
+                        document.querySelectorAll('.page-content').forEach(page => {
+                            page.classList.remove('active');
+                        });
+                        
+                        // Show the blog detail page
+                        document.getElementById('blog-detail').classList.add('active');
+                        
+                        // Update active navigation link
+                        document.querySelectorAll('.nav-link').forEach(navLink => {
+                            navLink.classList.remove('active');
+                        });
+                        
+                        // Scroll to top
+                        window.scrollTo(0, 0);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
